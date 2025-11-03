@@ -1,0 +1,15 @@
+This file contains instruction to expand to ~80 products across these categories:
+- Smartphones (10 items)
+- Laptops (10 items)
+- Headphones (8 items)
+- TVs (8 items)
+- Gaming Consoles (6 items)
+- Tablets (8 items)
+- Cameras (8 items)
+- Smart Home (8 items)
+- Wearables (6 items)
+- Accessories (10 items)
+- Drones (4 items)
+- Mobility (4 items)
+
+Total: 90 products to give good variety
