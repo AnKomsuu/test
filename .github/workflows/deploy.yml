@@ -1,0 +1,51 @@
+# Простой воркфлоу для развертывания статического контента на GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Запускается при пуше в ветку `main`
+  push:
+    branches: ['main']
+
+  # Позволяет запускать этот воркфлоу вручную со страницы Actions
+  workflow_dispatch:
+
+# Устанавливает права GITHUB_TOKEN для разрешения развертывания на GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Разрешает только одно одновременное развертывание, отменяя предыдущие запуски
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Единственная задача развертывания
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Вы можете использовать 18, 20 или новее
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Загрузка из папки dist
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
