@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Запускается при пуше в ветку `main`
   push:
-    branches: ['main']
+    branches: ['master']
 
   # Позволяет запускать этот воркфлоу вручную со страницы Actions
   workflow_dispatch:
