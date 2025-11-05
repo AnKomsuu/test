@@ -21,7 +21,7 @@ function ProductControls({ setSearchQuery, sortOrder, setSortOrder }: ProductCon
   }, [inputValue, setSearchQuery]);
 
   return (
-    <div className="flex justify-between items-center mb-6 gap-4">
+    <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
       <input
         type="text"
         value={inputValue}

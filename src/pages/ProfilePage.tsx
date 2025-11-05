@@ -153,7 +153,7 @@ function UserProfile({ user }: { user: User }) {
               <label className="text-sm font-medium text-gray-500 dark:text-gray-400">
                 {t('profile.email', 'Email')}
               </label>
-              <p className="text-lg text-gray-800 dark:text-gray-100">
+              <p className="text-lg text-gray-800 dark:text-gray-100 break-all">
                 {user.email}
               </p>
             </div>
